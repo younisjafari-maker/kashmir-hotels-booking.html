@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kashmir Hotels - Luxury to Budget Stays</title>
+    <meta name="description" content="Book hotels in Kashmir for every budget - from 5-star luxury to budget-friendly stays. Best deals with instant confirmation.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            padding: 50px 20px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 25px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            background: linear-gradient(45deg, #fff, #f0f8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.4rem;
+            opacity: 0.95;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        .tagline {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #8B4513;
+            padding: 15px 35px;
+            border-radius: 30px;
+            display: inline-block;
+            font-weight: bold;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            box-shadow: 0 6px 20px rgba(255, 165, 0, 0.4);
+        }
+
+        /* Search Box */
+        .search-box {
+            background: rgba(255,255,255,0.95);
+            padding: 50px;
+            border-radius: 25px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            margin-bottom: 50px;
+            border: 1px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .form-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2D3748;
+            margin-bottom: 40px;
+            font-weight: 700;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 12px;
+            font-weight: 600;
+            color: #4A5568;
+            font-size: 1.1rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 18px 25px;
+            border: 2px solid #E2E8F0;
+            border-radius: 15px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: #F7FAFC;
+            color: #2D3748;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #667eea;
+            background: white;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 20px 50px;
+            border-radius: 15px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #718096, #4A5568);
+        }
+
+        .btn-secondary:hover {
+            box-shadow: 0 15px 35px rgba(113, 128, 150, 0.4);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #48BB78, #38A169);
+        }
+
+        .btn-success:hover {
+            box-shadow: 0 15px 35px rgba(72, 187, 120, 0.4);
+        }
+
+        /* Budget Filter Section */
+        .budget-filter {
+            background: rgba(255,255,255,0.9);
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .budget-title {
+            text-align: center;
+            font-size: 1.8rem;
+            color: #2D3748;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .budget-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .budget-category {
+            background: #F7FAFC;
+            border: 3px solid #E2E8F0;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .budget-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .budget-category.active {
+            border-color: #667eea;
+            background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
+        }
+
+        .budget-category.luxury.active {
+            border-color: #FFD700;
+            background: linear-gradient(135deg, #FFF9C4, #FFEB3B);
+        }
+
+        .budget-category.premium.active {
+            border-color: #667eea;
+            background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
+        }
+
+        .budget-category.standard.active {
+            border-color: #48BB78;
+            background: linear-gradient(135deg, #C8F7DC, #A8E6CF);
+        }
+
+        .budget-category.budget.active {
+            border-color: #ED8936;
+            background: linear-gradient(135deg, #FEEBC8, #F6AD55);
+        }
+
+        .budget-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .budget-name {
+            font-size: 1.3rem;
+            color: #2D3748;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .budget-description {
+            color: #718096;
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+
+        .budget-price {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2D3748;
+        }
+
+        /* Results Section */
+        .results {
+            display: grid;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        /* Hotel Cards */
+        .hotel-card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(10px);
+            border-left: 5px solid;
+        }
+
+        .hotel-card.luxury {
+            border-left-color: #FFD700;
+        }
+
+        .hotel-card.premium {
+            border-left-color: #667eea;
+        }
+
+        .hotel-card.standard {
+            border-left-color: #48BB78;
+        }
+
+        .hotel-card.budget {
+            border-left-color: #ED8936;
+        }
+
+        .hotel-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        .hotel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .hotel-info h3 {
+            font-size: 1.8rem;
+            color: #2D3748;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .hotel-location {
+            color: #718096;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .hotel-rating {
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 8px 20px;
+            border-radius: 25px;
+            display: inline-block;
+        }
+
+        .rating-luxury {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #8B4513;
+        }
+
+        .rating-premium {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .rating-standard {
+            background: linear-gradient(45deg, #48BB78, #38A169);
+            color: white;
+        }
+
+        .rating-budget {
+            background: linear-gradient(45deg, #ED8936, #DD6B20);
+            color: white;
+        }
+
+        .hotel-description {
+            color: #4A5568;
+            margin-bottom: 25px;
+            line-height: 1.7;
+            font-size: 1.1rem;
+            font-weight: 400;
+        }
+
+        .amenities {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .amenity {
+            background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
+            color: #1976D2;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border: 1px solid #90CAF9;
+        }
+
+        .hotel-actions {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* Booking Form */
+        .booking-form {
+            background: rgba(255,255,255,0.98);
+            border-radius: 25px;
+            padding: 50px;
+            margin-top: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border: 2px solid #667eea;
+            backdrop-filter: blur(15px);
+        }
+
+        .form-section-title {
+            font-size: 1.5rem;
+            color: #2D3748;
+            margin-bottom: 25px;
+            font-weight: 700;
+            border-left: 5px solid #667eea;
+            padding-left: 15px;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .option-card {
+            background: #F7FAFC;
+            border: 2px solid #E2E8F0;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option-card:hover {
+            border-color: #667eea;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.2);
+        }
+
+        .option-card.selected {
+            border-color: #667eea;
+            background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .option-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .option-title {
+            font-size: 1.2rem;
+            color: #2D3748;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .option-description {
+            color: #718096;
+            font-size: 0.95rem;
+        }
+
+        /* Success Message */
+        .success-message {
+            background: linear-gradient(135deg, #C8F7DC, #A8E6CF);
+            border: 2px solid #4CAF50;
+            border-radius: 20px;
+            padding: 50px;
+            margin-top: 40px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(76, 175, 80, 0.2);
+        }
+
+        .success-icon {
+            font-size: 5rem;
+            margin-bottom: 25px;
+        }
+
+        .success-title {
+            color: #2E7D32;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .success-subtitle {
+            color: #388E3C;
+            font-size: 1.4rem;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .whatsapp-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 12px;
+            font-weight: bold;
+            margin: 20px 0;
+            font-size: 1.2rem;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        .booking-details {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: left;
+            border: 1px solid #C8E6C9;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .booking-details h4 {
+            color: #2E7D32;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #E8F5E8;
+        }
+
+        .detail-label {
+            color: #718096;
+            font-weight: 600;
+        }
+
+        .detail-value {
+            color: #2D3748;
+            font-weight: 700;
+        }
+
+        /* Features Section */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 50px 0;
+        }
+
+        .feature-card {
+            background: rgba(255,255,255,0.95);
+            padding: 35px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .feature-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-title {
+            font-size: 1.4rem;
+            color: #2D3748;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .feature-description {
+            color: #718096;
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 40px;
+            margin-top: 60px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .footer h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .footer p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 8px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .header p {
+                font-size: 1.2rem;
+            }
+            
+            .search-box {
+                padding: 30px;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .budget-categories {
+                grid-template-columns: 1fr;
+            }
+            
+            .hotel-header {
+                flex-direction: column;
+            }
+            
+            .hotel-actions {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            .booking-form {
+                padding: 30px;
+            }
+            
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .hotel-card {
+                padding: 25px;
+            }
+            
+            .success-message {
+                padding: 30px;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            text-align: center;
+            padding: 60px;
+        }
+
+        .spinner {
+            border: 5px solid #f3f4f6;
+            border-top: 5px solid #667eea;
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 30px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.5);
+            z-index: 1000;
+            text-decoration: none;
+            animation: float 3s ease-in-out infinite;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.6);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* City Tabs */
+        .city-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .city-tab {
+            padding: 15px 30px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .city-tab.active {
+            background: rgba(255,255,255,0.9);
+            color: #667eea;
+            border-color: #667eea;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .city-tab:hover {
+            transform: translateY(-2px);
+            background: rgba(255,255,255,0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/917889626353?text=Hi!%20I%20want%20to%20book%20a%20hotel%20in%20Kashmir" 
+       class="whatsapp-float" 
+       target="_blank">
+       📱
+    </a>
+
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <h1>🏔️ Kashmir Hotels</h1>
+            <p>Luxury Resorts to Budget Stays - Perfect for Every Traveler</p>
+            <p>Find Your Ideal Accommodation in Paradise</p>
+            <div class="tagline">All Budget Categories • Instant WhatsApp Confirmation</div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">💰</div>
+                <div class="feature-title">All Budget Options</div>
+                <div class="feature-description">From luxury 5-star resorts to budget-friendly hotels for every traveler</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⭐</div>
+                <div class="feature-title">Verified Properties</div>
+                <div class="feature-description">Carefully selected hotels across all star categories and price ranges</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <div class="feature-title">Secure Booking</div>
+                <div class="feature-description">Your travel plans are safe with our reliable booking system</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📞</div>
+                <div class="feature-title">24/7 Support</div>
+                <div class="feature-description">Dedicated support team available for all your travel needs</div>
+            </div>
+        </div>
+
+        <!-- Search Section -->
+        <div class="search-box">
+            <h2 class="form-title">Find Your Perfect Stay in Kashmir</h2>
+            
+            <!-- City Tabs -->
+            <div class="city-tabs">
+                <div class="city-tab active" onclick="filterHotels('all')">All Cities</div>
+                <div class="city-tab" onclick="filterHotels('Srinagar')">Srinagar</div>
+                <div class="city-tab" onclick="filterHotels('Gulmarg')">Gulmarg</div>
+                <div class="city-tab" onclick="filterHotels('Pahalgam')">Pahalgam</div>
+                <div class="city-tab" onclick="filterHotels('Sonmarg')">Sonmarg</div>
+            </div>
+
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>📍 Destination City</label>
+                    <select class="form-control" id="city">
+                        <option value="">Select Your Preferred Destination</option>
+                        <option value="Srinagar">Srinagar - The Summer Capital</option>
+                        <option value="Gulmarg">Gulmarg - Meadow of Flowers</option>
+                        <option value="Pahalgam">Pahalgam - Valley of Shepherds</option>
+                        <option value="Sonmarg">Sonmarg - Meadow of Gold</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>📅 Check-in Date</label>
+                    <input type="date" class="form-control" id="checkin">
+                </div>
+                
+                <div class="form-group">
+                    <label>📅 Check-out Date</label>
+                    <input type="date" class="form-control" id="checkout">
+                </div>
+                
+                <div class="form-group">
+                    <label>👥 Number of Guests</label>
+                    <select class="form-control" id="guests">
+                        <option value="1">1 Guest</option>
+                        <option value="2" selected>2 Guests</option>
+                        <option value="3">3 Guests</option>
+                        <option value="4">4 Guests</option>
+                        <option value="5">5+ Guests</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- Budget Filter Section -->
+            <div class="budget-filter">
+                <h3 class="budget-title">Choose Your Budget Category</h3>
+                <div class="budget-categories">
+                    <div class="budget-category luxury active" onclick="selectBudgetCategory('all', this)">
+                        <div class="budget-icon">⭐</div>
+                        <div class="budget-name">All Categories</div>
+                        <div class="budget-description">Show all hotels</div>
+                        <div class="budget-price">All Budgets</div>
+                    </div>
+                    <div class="budget-category luxury" onclick="selectBudgetCategory('luxury', this)">
+                        <div class="budget-icon">🏰</div>
+                        <div class="budget-name">5-Star Luxury</div>
+                        <div class="budget-description">Premium luxury resorts</div>
+                        <div class="budget-price">Ultimate Comfort</div>
+                    </div>
+                    <div class="budget-category premium" onclick="selectBudgetCategory('premium', this)">
+                        <div class="budget-icon">🏨</div>
+                        <div class="budget-name">4-Star Premium</div>
+                        <div class="budget-description">Upscale comfort</div>
+                        <div class="budget-price">Great Value</div>
+                    </div>
+                    <div class="budget-category standard" onclick="selectBudgetCategory('standard', this)">
+                        <div class="budget-icon">🛏️</div>
+                        <div class="budget-name">3-Star Standard</div>
+                        <div class="budget-description">Comfortable stays</div>
+                        <div class="budget-price">Budget Friendly</div>
+                    </div>
+                    <div class="budget-category budget" onclick="selectBudgetCategory('budget', this)">
+                        <div class="budget-icon">🔸</div>
+                        <div class="budget-name">2-Star Budget</div>
+                        <div class="budget-description">Economical options</div>
+                        <div class="budget-price">Best Deals</div>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="btn" onclick="searchHotels()">
+                🔍 Find Hotels Now
+            </button>
+        </div>
+
+        <!-- Results Section -->
+        <div id="results" class="results">
+            <!-- Hotels will appear here automatically -->
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <h3>Kashmir Hotels Booking</h3>
+            <p>📞 WhatsApp: 7889626353 | ✉️ info@kashmirhotels.com</p>
+            <p>Your Perfect Stay in Paradise Awaits - Book with Confidence</p>
+            <p>© 2024 Kashmir Hotels. Trusted Hospitality Services.</p>
+        </div>
+    </div>
+
+    <script>
+        // Complete hotels database with all budget categories
+        const hotels = [
+            // Srinagar - 5 Star Luxury Hotels
+            {
+                id: 1,
+                name: "The LaLiT Grand Palace Srinagar",
+                city: "Srinagar",
+                category: "luxury",
+                rating: "5-Star Luxury Resort",
+                location: "Premium Location, Srinagar",
+                description: "Iconic luxury resort offering royal hospitality with modern amenities. Features exquisite architecture, premium dining, and exceptional service standards.",
+                amenities: ["Swimming Pool", "Luxury Spa", "Fine Dining", "Concierge", "Premium Suites", "Event Spaces"],
+                roomTypes: ["Luxury Room", "Grand Suite", "Presidential Suite"],
+                mealPlans: ["Bed & Breakfast", "Half Board", "Full Board"]
+            },
+            {
+                id: 2,
+                name: "Taj Dal View, Srinagar",
+                city: "Srinagar",
+                category: "luxury",
+                rating: "5-Star Luxury Hotel",
+                location: "Dal Lake View, Srinagar",
+                description: "Premium Taj hotel offering breathtaking Dal Lake views with world-class hospitality and luxurious accommodations.",
+                amenities: ["Lake View", "Premium Spa", "Multiple Restaurants", "Business Center", "Luxury Rooms"],
+                roomTypes: ["Dal View Room", "Luxury Suite", "Executive Room"],
+                mealPlans: ["Breakfast Included", "Half Board", "All Inclusive"]
+            },
+            {
+                id: 3,
+                name: "Vivanta Dal View, Srinagar",
+                city: "Srinagar",
+                category: "luxury",
+                rating: "5-Star Luxury Resort",
+                location: "Dal Lake Area, Srinagar",
+                description: "Contemporary luxury resort with stunning architecture and premium amenities overlooking Dal Lake.",
+                amenities: ["Infinity Pool", "Wellness Spa", "Fine Dining", "Fitness Center", "Luxury Accommodations"],
+                roomTypes: ["Premium Room", "Vivanta Suite", "Lake View Suite"],
+                mealPlans: ["Bed & Breakfast", "Half Board", "Full Board"]
+            },
+
+            // Srinagar - 4 Star Premium Hotels
+            {
+                id: 4,
+                name: "Radisson Srinagar",
+                city: "Srinagar",
+                category: "premium",
+                rating: "4-Star Premium Hotel",
+                location: "City Center, Srinagar",
+                description: "Upscale hotel offering comfortable luxury with excellent service and convenient city location.",
+                amenities: ["Restaurant", "Bar", "Fitness Center", "Meeting Rooms", "Complimentary WiFi"],
+                roomTypes: ["Standard Room", "Executive Room", "Family Suite"],
+                mealPlans: ["Bed & Breakfast", "Half Board"]
+            },
+            {
+                id: 5,
+                name: "Four Points by Sheraton Srinagar",
+                city: "Srinagar",
+                category: "premium",
+                rating: "4-Star Business Hotel",
+                location: "Commercial Area, Srinagar",
+                description: "Modern business hotel with contemporary design and excellent facilities for both business and leisure travelers.",
+                amenities: ["Business Center", "Fitness Studio", "Restaurant", "Bar", "Meeting Spaces"],
+                roomTypes: ["Comfort Room", "Executive Room", "Sheraton Club Room"],
+                mealPlans: ["Breakfast Included", "Room Only"]
+            },
+            {
+                id: 6,
+                name: "Sarovar Premiere Srinagar",
+                city: "Srinagar",
+                category: "premium",
+                rating: "4-Star Boutique Hotel",
+                location: "Prime Location, Srinagar",
+                description: "Boutique-style hotel offering personalized service and comfortable upscale accommodations.",
+                amenities: ["Restaurant", "Conference Room", "Travel Desk", "Room Service", "WiFi"],
+                roomTypes: ["Premiere Room", "Executive Suite", "Family Room"],
+                mealPlans: ["Bed & Breakfast", "Half Board"]
+            },
+
+            // Srinagar - 3 Star Standard Hotels
+            {
+                id: 7,
+                name: "Hotel Grand Boulevard Srinagar",
+                city: "Srinagar",
+                category: "standard",
+                rating: "3-Star Standard Hotel",
+                location: "City Center, Srinagar",
+                description: "Comfortable hotel offering good value with essential amenities and convenient location.",
+                amenities: ["Restaurant", "Room Service", "Travel Assistance", "WiFi", "Parking"],
+                roomTypes: ["Standard Room", "Deluxe Room", "Family Room"],
+                mealPlans: ["Bed & Breakfast", "Room Only"]
+            },
+            {
+                id: 8,
+                name: "Apple Orchard Resort & Spa",
+                city: "Srinagar",
+                category: "standard",
+                rating: "3-Star Resort",
+                location: "Orchard Area, Srinagar",
+                description: "Pleasant resort surrounded by apple orchards offering comfortable accommodations and basic amenities.",
+                amenities: ["Garden", "Restaurant", "Basic Spa", "Parking", "WiFi"],
+                roomTypes: ["Orchard View Room", "Standard Room", "Suite"],
+                mealPlans: ["Breakfast Included", "Half Board"]
+            },
+
+            // Srinagar - 2 Star Budget Hotels
+            {
+                id: 9,
+                name: "Centre Point Hotel",
+                city: "Srinagar",
+                category: "budget",
+                rating: "2-Star Budget Hotel",
+                location: "Central Location, Srinagar",
+                description: "Economical hotel offering basic comfortable accommodations with essential services for budget travelers.",
+                amenities: ["Basic Rooms", "Restaurant", "Travel Desk", "WiFi", "Parking"],
+                roomTypes: ["Standard Room", "Budget Room", "Double Room"],
+                mealPlans: ["Room Only", "Breakfast Available"]
+            },
+            {
+                id: 10,
+                name: "Batra Hotel & Residences",
+                city: "Srinagar",
+                category: "budget",
+                rating: "2-Star Economy Hotel",
+                location: "City Area, Srinagar",
+                description: "Budget-friendly hotel providing clean accommodations and basic amenities for economical stays.",
+                amenities: ["Clean Rooms", "Basic Restaurant", "WiFi", "Parking", "24-Hour Desk"],
+                roomTypes: ["Economy Room", "Standard Room", "Family Room"],
+                mealPlans: ["Room Only", "Breakfast Optional"]
+            },
+
+            // Gulmarg Hotels
+            {
+                id: 11,
+                name: "The Khyber Himalayan Resort & Spa",
+                city: "Gulmarg",
+                category: "luxury",
+                rating: "5-Star Luxury Resort",
+                location: "Ski Slopes, Gulmarg",
+                description: "Ultra-luxury resort offering ski-in/ski-out access, premium spa, and breathtaking mountain views.",
+                amenities: ["Ski Access", "Luxury Spa", "Fine Dining", "Hot Tub", "Adventure Desk"],
+                roomTypes: ["Mountain View Room", "Himalayan Suite", "Luxury Villa"],
+                mealPlans: ["Breakfast Included", "Half Board", "All Inclusive"]
+            },
+            {
+                id: 12,
+                name: "Hotel Hilltop Gulmarg",
+                city: "Gulmarg",
+                category: "premium",
+                rating: "4-Star Premium Hotel",
+                location: "Hilltop Location, Gulmarg",
+                description: "Comfortable hotel with excellent mountain views and convenient access to ski slopes.",
+                amenities: ["Mountain View", "Restaurant", "Ski Equipment", "Travel Desk", "WiFi"],
+                roomTypes: ["Standard Room", "Hilltop Suite", "Family Room"],
+                mealPlans: ["Breakfast Only", "Half Board"]
+            },
+            {
+                id: 13,
+                name: "Gulmarg Ski Hill Resort",
+                city: "Gulmarg",
+                category: "standard",
+                rating: "3-Star Standard Resort",
+                location: "Ski Area, Gulmarg",
+                description: "Comfortable resort near ski slopes offering good value accommodations for adventure travelers.",
+                amenities: ["Ski Proximity", "Restaurant", "Basic Amenities", "Travel Assistance", "WiFi"],
+                roomTypes: ["Standard Room", "Ski Room", "Group Room"],
+                mealPlans: ["Bed & Breakfast", "Room Only"]
+            },
+
+            // Pahalgam Hotels
+            {
+                id: 14,
+                name: "Welcomhotel by ITC Hotels, Pine N Peak",
+                city: "Pahalgam",
+                category: "luxury",
+                rating: "5-Star Luxury Resort",
+                location: "Pine Forest, Pahalgam",
+                description: "Luxury resort nestled in pine forests offering premium accommodations and exceptional service.",
+                amenities: ["Forest View", "Spa", "Multiple Dining", "Adventure Sports", "Luxury Rooms"],
+                roomTypes: ["Forest View Room", "Luxury Suite", "Premium Room"],
+                mealPlans: ["Bed & Breakfast", "Half Board", "Full Board"]
+            },
+            {
+                id: 15,
+                name: "Radisson Golf Resort Pahalgam",
+                city: "Pahalgam",
+                category: "luxury",
+                rating: "5-Star Golf Resort",
+                location: "Golf Course, Pahalgam",
+                description: "Premium golf resort offering luxury accommodations and excellent recreational facilities.",
+                amenities: ["Golf Course", "Spa", "Swimming Pool", "Fine Dining", "Sports Facilities"],
+                roomTypes: ["Golf View Room", "Executive Suite", "Family Room"],
+                mealPlans: ["Breakfast Included", "Half Board", "All Inclusive"]
+            },
+            {
+                id: 16,
+                name: "The Pahalgam Shore",
+                city: "Pahalgam",
+                category: "premium",
+                rating: "4-Star Boutique Hotel",
+                location: "Riverside, Pahalgam",
+                description: "Charming boutique hotel offering comfortable accommodations with beautiful river views.",
+                amenities: ["River View", "Restaurant", "Garden", "Travel Assistance", "WiFi"],
+                roomTypes: ["River View Room", "Shore Suite", "Standard Room"],
+                mealPlans: ["Bed & Breakfast", "Half Board"]
+            },
+
+            // Sonmarg Hotels
+            {
+                id: 17,
+                name: "Lemon Tree Hotel Sonmarg",
+                city: "Sonmarg",
+                category: "premium",
+                rating: "4-Star Premium Hotel",
+                location: "Meadow View, Sonmarg",
+                description: "Modern hotel offering comfortable accommodations with excellent service and mountain views.",
+                amenities: ["Mountain View", "Restaurant", "Bar", "Travel Desk", "Complimentary WiFi"],
+                roomTypes: ["Comfort Room", "Mountain View Room", "Family Suite"],
+                mealPlans: ["Breakfast Included", "Room Only"]
+            },
+            {
+                id: 18,
+                name: "Hotel Snowland Sonmarg",
+                city: "Sonmarg",
+                category: "standard",
+                rating: "3-Star Standard Hotel",
+                location: "Meadow Area, Sonmarg",
+                description: "Comfortable hotel offering good value accommodations with basic amenities and beautiful surroundings.",
+                amenities: ["Mountain View", "Restaurant", "Basic Facilities", "Travel Desk", "WiFi"],
+                roomTypes: ["Standard Room", "Snow View Room", "Family Room"],
+                mealPlans: ["Bed & Breakfast", "Room Only"]
+            },
+            {
+                id: 19,
+                name: "New Hill View Hotel Sonmarg",
+                city: "Sonmarg",
+                category: "budget",
+                rating: "2-Star Budget Hotel",
+                location: "Hill Area, Sonmarg",
+                description: "Economical hotel offering basic comfortable accommodations with essential services.",
+                amenities: ["Hill View", "Basic Restaurant", "Travel Assistance", "WiFi", "Parking"],
+                roomTypes: ["Budget Room", "Standard Room", "Double Room"],
+                mealPlans: ["Room Only", "Breakfast Available"]
+            }
+        ];
+
+        // Global variables
+        let selectedBudgetCategory = 'all';
+        let selectedCity = 'all';
+
+        // Set default dates
+        function setDefaultDates() {
+            const today = new Date();
+            const tomorrow = new Date(today);
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            
+            document.getElementById('checkin').value = today.toISOString().split('T')[0];
+            document.getElementById('checkout').value = tomorrow.toISOString().split('T')[0];
+        }
+
+        // Filter hotels by city
+        function filterHotels(city) {
+            selectedCity = city;
+            
+            // Update active tab
+            document.querySelectorAll('.city-tab').forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Set city in dropdown
+            if (city !== 'all') {
+                document.getElementById('city').value = city;
+            }
+            
+            // Search hotels
+            searchHotels();
+        }
+
+        // Select budget category
+        function selectBudgetCategory(category, element) {
+            selectedBudgetCategory = category;
+            
+            // Update active budget category
+            document.querySelectorAll('.budget-category').forEach(cat => cat.classList.remove('active'));
+            element.classList.add('active');
+            
+            // Search hotels
+            searchHotels();
+        }
+
+        // Search hotels function
+        function searchHotels() {
+            const city = document.getElementById('city').value;
+            const checkin = document.getElementById('checkin').value;
+            const checkout = document.getElementById('checkout').value;
+            
+            if (!city || !checkin || !checkout) {
+                alert('Please fill all fields to find your perfect stay');
+                return;
+            }
+
+            // Show loading
+            document.getElementById('results').innerHTML = `
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <h3 style="color: white;">Finding perfect hotels in ${city}...</h3>
+                </div>
+            `;
+
+            // Simulate API call delay
+            setTimeout(() => {
+                let filteredHotels = hotels.filter(hotel => {
+                    const cityMatch = selectedCity === 'all' || hotel.city === selectedCity;
+                    const budgetMatch = selectedBudgetCategory === 'all' || hotel.category === selectedBudgetCategory;
+                    return cityMatch && budgetMatch;
+                });
+                
+                displayHotels(filteredHotels, city);
+            }, 1500);
+        }
+
+        // Display hotels function
+        function displayHotels(hotels, city) {
+            const resultsDiv = document.getElementById('results');
+            
+            if (hotels.length === 0) {
+                resultsDiv.innerHTML = `
+                    <div class="hotel-card" style="text-align: center;">
+                        <h3>No Hotels Found</h3>
+                        <p>Try changing your budget category or explore other cities in Kashmir</p>
+                        <button class="btn" onclick="showAllHotels()" style="margin-top: 20px;">
+                            View All Hotels
+                        </button>
+                    </div>
+                `;
+                return;
+            }
+            
+            const budgetText = selectedBudgetCategory === 'all' ? 'All Budget Categories' : 
+                              selectedBudgetCategory === 'luxury' ? '5-Star Luxury' :
+                              selectedBudgetCategory === 'premium' ? '4-Star Premium' :
+                              selectedBudgetCategory === 'standard' ? '3-Star Standard' : '2-Star Budget';
+            
+            resultsDiv.innerHTML = `
+                <h2 style="color: white; text-align: center; margin-bottom: 30px; font-size: 2.5rem;">
+                    🏨 ${budgetText} in ${city}
+                </h2>
+                <p style="color: white; text-align: center; margin-bottom: 20px; font-size: 1.2rem;">
+                    Found ${hotels.length} hotels matching your criteria
+                </p>
+            ` + hotels.map(hotel => `
+                <div class="hotel-card ${hotel.category}">
+                    <div class="hotel-header">
+                        <div class="hotel-info">
+                            <h3>${hotel.name}</h3>
+                            <p class="hotel-location">📍 ${hotel.location}</p>
+                            <span class="hotel-rating rating-${hotel.category}">${hotel.rating}</span>
+                        </div>
+                    </div>
+                    
+                    <p class="hotel-description">${hotel.description}</p>
+                    
+                    <div class="amenities">
+                        ${hotel.amenities.map(amenity => `
+                            <span class="amenity">✨ ${amenity}</span>
+                        `).join('')}
+                    </div>
+                    
+                    <div class="hotel-actions">
+                        <button class="btn" onclick="showBookingForm(${hotel.id})">
+                            📝 Check Availability & Book
+                        </button>
+                        <button class="btn btn-secondary" onclick="contactProperty(${hotel.id})">
+                            💬 Inquire on WhatsApp
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Show all hotels
+        function showAllHotels() {
+            selectedBudgetCategory = 'all';
+            selectedCity = 'all';
+            
+            // Reset filters
+            document.querySelectorAll('.budget-category').forEach(cat => cat.classList.remove('active'));
+            document.querySelector('.budget-category.luxury').classList.add('active');
+            
+            document.querySelectorAll('.city-tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelector('.city-tab').classList.add('active');
+            
+            document.getElementById('city').value = '';
+            
+            displayHotels(hotels, "Kashmir");
+        }
+
+        // Contact property directly
+        function contactProperty(hotelId) {
+            const hotel = hotels.find(h => h.id === hotelId);
+            const message = `Hello! I'm interested in ${hotel.name} in ${hotel.city}. Please share more details about room types and availability.`;
+            const whatsappUrl = `https://wa.me/917889626353?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Show booking form
+        function showBookingForm(hotelId) {
+            const hotel = hotels.find(h => h.id === hotelId);
+            const checkin = document.getElementById('checkin').value;
+            const checkout = document.getElementById('checkout').value;
+            const guests = document.getElementById('guests').value;
+            
+            const formHTML = `
+                <div class="booking-form">
+                    <h2 class="form-title">Book ${hotel.name}</h2>
+                    <p class="form-subtitle">Complete your booking details for instant confirmation</p>
+                    
+                    <form onsubmit="submitBooking(event, ${hotel.id})">
+                        <h3 class="form-section-title">👤 Personal Information</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>Full Name *</label>
+                                <input type="text" class="form-control" name="name" required placeholder="Enter your full name">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>WhatsApp Number *</label>
+                                <input type="tel" class="form-control" name="phone" required placeholder="Enter your WhatsApp number">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Email Address</label>
+                                <input type="email" class="form-control" name="email" placeholder="your@email.com">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Hotel Category</label>
+                                <input type="text" class="form-control" value="${hotel.rating}" readonly style="background: #F7FAFC;">
+                            </div>
+                        </div>
+
+                        <h3 class="form-section-title">🛏️ Room Type Selection</h3>
+                        <div class="options-grid" id="roomTypeOptions">
+                            ${hotel.roomTypes.map((roomType, index) => `
+                                <div class="option-card" onclick="selectOption('roomType', '${roomType}', this)">
+                                    <div class="option-icon">${index === 0 ? '🏨' : index === 1 ? '💎' : '👨‍👩‍👧‍👦'}</div>
+                                    <div class="option-title">${roomType}</div>
+                                    <div class="option-description">Comfortable accommodation</div>
+                                </div>
+                            `).join('')}
+                        </div>
+
+                        <h3 class="form-section-title">🍽️ Meal Plan Selection</h3>
+                        <div class="options-grid" id="mealPlanOptions">
+                            ${hotel.mealPlans.map((mealPlan, index) => `
+                                <div class="option-card" onclick="selectOption('mealPlan', '${mealPlan}', this)">
+                                    <div class="option-icon">${index === 0 ? '☕' : index === 1 ? '🍽️' : '🎯'}</div>
+                                    <div class="option-title">${mealPlan}</div>
+                                    <div class="option-description">${getMealPlanDescription(mealPlan)}</div>
+                                </div>
+                            `).join('')}
+                        </div>
+
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>Number of Rooms</label>
+                                <select class="form-control" name="rooms">
+                                    <option value="1">1 Room</option>
+                                    <option value="2">2 Rooms</option>
+                                    <option value="3">3 Rooms</option>
+                                    <option value="4">4+ Rooms</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Total Guests</label>
+                                <input type="text" class="form-control" value="${guests} Guests" readonly style="background: #F7FAFC;">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Check-in Date</label>
+                                <input type="text" class="form-control" value="${checkin}" readonly style="background: #F7FAFC;">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Check-out Date</label>
+                                <input type="text" class="form-control" value="${checkout}" readonly style="background: #F7FAFC;">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Special Requests / Additional Requirements</label>
+                            <textarea class="form-control" name="requests" rows="4" placeholder="Any special requirements, dietary preferences, transportation needs..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-success">
+                            ✅ Submit Booking Request
+                        </button>
+                        
+                        <p style="text-align: center; margin-top: 20px; color: #718096; font-size: 1.1rem;">
+                            📱 You'll receive instant WhatsApp confirmation with availability
+                        </p>
+                    </form>
+                </div>
+            `;
+            
+            document.getElementById('results').innerHTML += formHTML;
+            
+            // Scroll to form
+            document.querySelector('.booking-form').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        }
+
+        // Get meal plan description
+        function getMealPlanDescription(mealPlan) {
+            const descriptions = {
+                "Bed & Breakfast": "Complimentary breakfast included",
+                "Half Board": "Breakfast and dinner included daily",
+                "Full Board": "All meals included with dining options",
+                "Breakfast Included": "Daily breakfast service",
+                "All Inclusive": "All meals + beverages included",
+                "Breakfast Only": "Complimentary breakfast service",
+                "Room Only": "Accommodation only, meals extra",
+                "Breakfast Available": "Breakfast available at extra cost"
+            };
+            return descriptions[mealPlan] || "Meal plan option";
+        }
+
+        // Select option function
+        function selectOption(type, value, element) {
+            // Remove selected class from all options
+            const options = element.parentElement.querySelectorAll('.option-card');
+            options.forEach(opt => opt.classList.remove('selected'));
+            
+            // Add selected class to clicked option
+            element.classList.add('selected');
+            
+            // Store selected value
+            if (type === 'roomType') {
+                window.selectedRoomType = value;
+            } else if (type === 'mealPlan') {
+                window.selectedMealPlan = value;
+            }
+        }
+
+        // Submit booking function
+        function submitBooking(event, hotelId) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const hotel = hotels.find(h => h.id === hotelId);
+            const checkin = document.getElementById('checkin').value;
+            const checkout = document.getElementById('checkout').value;
+            
+            const bookingData = {
+                hotel: hotel.name,
+                category: hotel.rating,
+                name: formData.get('name'),
+                phone: formData.get('phone'),
+                email: formData.get('email'),
+                rooms: formData.get('rooms'),
+                roomType: window.selectedRoomType || hotel.roomTypes[0],
+                mealPlan: window.selectedMealPlan || hotel.mealPlans[0],
+                checkin: checkin,
+                checkout: checkout,
+                guests: document.getElementById('guests').value,
+                requests: formData.get('requests'),
+                timestamp: new Date().toLocaleString('en-IN')
+            };
+            
+            // Show success message
+            showSuccessMessage(bookingData);
+            
+            // Send WhatsApp notifications
+            sendWhatsAppNotifications(bookingData);
+        }
+
+        // Show success message
+        function showSuccessMessage(booking) {
+            const successHTML = `
+                <div class="success-message">
+                    <div class="success-icon">🎉</div>
+                    <h2 class="success-title">Booking Request Received!</h2>
+                    <p class="success-subtitle">Thank you ${booking.name}! Your booking request has been submitted.</p>
+                    
+                    <div class="whatsapp-badge">
+                        📱 WhatsApp Confirmation Sent
+                    </div>
+                    
+                    <div class="booking-details">
+                        <h4>Booking Summary</h4>
+                        <div class="detail-item">
+                            <span class="detail-label">Hotel:</span>
+                            <span class="detail-value">${booking.hotel}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Category:</span>
+                            <span class="detail-value">${booking.category}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Room Type:</span>
+                            <span class="detail-value">${booking.roomType}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Meal Plan:</span>
+                            <span class="detail-value">${booking.mealPlan}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Check-in:</span>
+                            <span class="detail-value">${booking.checkin}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Check-out:</span>
+                            <span class="detail-value">${booking.checkout}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Rooms:</span>
+                            <span class="detail-value">${booking.rooms}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Guests:</span>
+                            <span class="detail-value">${booking.guests}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Contact:</span>
+                            <span class="detail-value">${booking.phone}</span>
+                        </div>
+                    </div>
+                    
+                    <p><strong>What Happens Next:</strong></p>
+                    <p>1. We'll contact you within 15 minutes on WhatsApp</p>
+                    <p>2. Discuss availability and provide best options</p>
+                    <p>3. Confirm your booking with all details</p>
+                    <p>4. Receive your booking confirmation</p>
+                    
+                    <button class="btn" onclick="searchHotels()" style="margin-top: 30px;">
+                        🏨 Explore More Hotels
+                    </button>
+                </div>
+            `;
+            
+            document.getElementById('results').innerHTML = successHTML;
+        }
+
+        // Send WhatsApp notifications
+        function sendWhatsAppNotifications(booking) {
+            // Message for hotel owner
+            const hotelMessage = `
+🏔️ *NEW HOTEL BOOKING REQUEST* 
+
+*Hotel:* ${booking.hotel}
+*Category:* ${booking.category}
+*Customer:* ${booking.name}
+*Contact:* ${booking.phone}
+*Email:* ${booking.email || 'Not provided'}
+
+*Booking Details:*
+🛏️ Room Type: ${booking.roomType}
+🍽️ Meal Plan: ${booking.mealPlan}
+📅 Check-in: ${booking.checkin}
+📅 Check-out: ${booking.checkout}
+🛏️ Rooms: ${booking.rooms}
+👥 Guests: ${booking.guests}
+
+*Special Requests:*
+${booking.requests || 'No special requests'}
+
+*Time Submitted:* ${booking.timestamp}
+
+📍 *Please contact customer within 15 minutes to confirm availability.*
+            `;
+
+            // Create WhatsApp URL
+            const whatsappUrl = `https://wa.me/917889626353?text=${encodeURIComponent(hotelMessage)}`;
+
+            // Open WhatsApp with pre-filled message
+            setTimeout(() => {
+                window.open(whatsappUrl, '_blank');
+                
+                // Show confirmation
+                alert('📱 WhatsApp opened with booking details. Please click SEND to receive the lead.');
+            }, 1000);
+        }
+
+        // Initialize the page
+        window.onload = function() {
+            setDefaultDates();
+            // Show some hotels by default
+            setTimeout(() => {
+                displayHotels(hotels.slice(0, 6), "Kashmir");
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
